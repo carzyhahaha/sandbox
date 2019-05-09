@@ -12,4 +12,5 @@ public class BaseExceptionHandler {
     public Result error(Exception e) {
         return new Result(false, StatusCode.ERROR.getCode(), e.getMessage());
     }
+
 }

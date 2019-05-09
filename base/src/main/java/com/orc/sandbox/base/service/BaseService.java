@@ -1,72 +1,60 @@
 package com.orc.sandbox.base.service;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
+import com.orc.sandbox.base.dao.BaseDao;
 
 import javax.annotation.Resource;
 import java.util.Optional;
 
-public class BaseService<T, P> implements CrudRepository<T, P> {
+public class BaseService<T, P, D extends BaseDao<T, P>>   {
 
     @Resource
-    JpaRepository<T, P> dao;
+    D dao;
 
     public T getOne(P id) {
         return  dao.getOne(id);
     }
 
-    @Override
     public <S extends T> S save(S s) {
-        return null;
+        return dao.save(s);
     }
 
-    @Override
     public <S extends T> Iterable<S> saveAll(Iterable<S> iterable) {
-        return null;
+        return dao.saveAll(iterable);
     }
 
-    @Override
     public Optional<T> findById(P p) {
-        return Optional.empty();
+        return dao.findById(p);
     }
 
-    @Override
     public boolean existsById(P p) {
-        return false;
+        return dao.existsById(p);
     }
-
-    @Override
+    
     public Iterable<T> findAll() {
-        return null;
+        return dao.findAll();
     }
-
-    @Override
+    
     public Iterable<T> findAllById(Iterable<P> iterable) {
-        return null;
+        return dao.findAllById(iterable);
     }
-
-    @Override
+    
     public long count() {
-        return 0;
+        return dao.count();
     }
-
-    @Override
+    
     public void deleteById(P p) {
-
+        dao.deleteById(p);
     }
-
-    @Override
+    
     public void delete(T t) {
-
+        dao.delete(t);
     }
-
-    @Override
+    
     public void deleteAll(Iterable<? extends T> iterable) {
-
+        dao.deleteAll(iterable);
     }
-
-    @Override
+    
     public void deleteAll() {
-
+        dao.deleteAllInBatch();
     }
 }

@@ -21,7 +21,9 @@ public class UserController extends BaseController{
     public Result get(@PathVariable("id") Integer id) {
         Result<User> rs = new Result<>();
 
-        User user = userService.getOne(id);
+        User user = new User();
+        user.setId(233);
+        user = userService.findByCondition(user).get(0);
         rs.setData(user);
 
         return rs;
