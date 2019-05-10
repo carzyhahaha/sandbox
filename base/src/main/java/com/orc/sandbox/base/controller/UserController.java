@@ -3,6 +3,7 @@ package com.orc.sandbox.base.controller;
 import com.orc.sandbox.base.entity.User;
 import com.orc.sandbox.base.service.UserService;
 import com.orc.sandbox.common.bo.Result;
+import com.orc.sandbox.common.util.IdWorker;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,9 +21,9 @@ public class UserController extends BaseController{
     @GetMapping("/get/{id}")
     public Result get(@PathVariable("id") Integer id) {
         Result<User> rs = new Result<>();
-
+        IdWorker idWorker = new IdWorker(1, 1);
         User user = new User();
-        user.setId(233);
+        user.setId(String.valueOf(idWorker.nextId()));
         user = userService.findByCondition(user).get(0);
         rs.setData(user);
 

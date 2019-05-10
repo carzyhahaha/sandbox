@@ -2,6 +2,9 @@ package com.orc.sandbox.base.service;
 
 import com.orc.sandbox.base.dao.UserDao;
 import com.orc.sandbox.base.entity.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
@@ -34,4 +37,16 @@ public class UserService extends BaseService <User, Integer, UserDao> {
         });
     }
 
+
+    public Page<User> pageQuery(User user, Integer pageSize, Integer pageNum) {
+
+        Pageable pageable = PageRequest.of(pageNum-1, pageSize);
+        return dao.findAll(new Specification<User>() {
+
+            @Override
+            public Predicate toPredicate(Root<User> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                return null;
+            }
+        }, pageable);
+    }
 }
