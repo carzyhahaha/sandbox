@@ -1,6 +1,7 @@
 package com.orc.sandbox.base.service;
 
-import com.orc.sandbox.base.dao.BaseDao;
+
+import com.orc.sandbox.common.dao.BaseDao;
 
 import javax.annotation.Resource;
 import java.util.Optional;

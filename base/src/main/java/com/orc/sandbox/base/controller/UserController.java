@@ -19,12 +19,11 @@ public class UserController extends BaseController{
     UserService userService;
 
     @GetMapping("/get/{id}")
-    public Result get(@PathVariable("id") Integer id) {
+    public Result get(@PathVariable("id") Long id) {
         Result<User> rs = new Result<>();
         IdWorker idWorker = new IdWorker(1, 1);
-        User user = new User();
-        user.setId(String.valueOf(idWorker.nextId()));
-        user = userService.findByCondition(user).get(0);
+        User user = null;
+        user = userService.getOne(id);
         rs.setData(user);
 
         return rs;

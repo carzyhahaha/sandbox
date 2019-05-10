@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class UserService extends BaseService <User, Integer, UserDao> {
+public class UserService extends BaseService <User, Long, UserDao> {
 
 
     public List<User> findByCondition(User user) {
