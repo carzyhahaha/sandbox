@@ -1,8 +1,10 @@
 package com.orc.sandbox.base.controller;
 
+import com.orc.sandbox.base.dao.UserDao;
 import com.orc.sandbox.base.entity.User;
 import com.orc.sandbox.base.service.UserService;
 import com.orc.sandbox.common.bo.Result;
+import com.orc.sandbox.common.util.ApplicationContextUtil;
 import com.orc.sandbox.common.util.IdWorker;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +29,13 @@ public class UserController extends BaseController{
         rs.setData(user);
 
         return rs;
+    }
+
+    @GetMapping("/test")
+    public Result test() {
+        ApplicationContextUtil.getBean(UserDao.class);
+
+        return new Result();
     }
 
 

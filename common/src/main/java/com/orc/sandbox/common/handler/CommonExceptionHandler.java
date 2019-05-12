@@ -2,6 +2,7 @@ package com.orc.sandbox.common.handler;
 
 import com.orc.sandbox.common.bo.Result;
 import com.orc.sandbox.common.constant.StatusCode;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 

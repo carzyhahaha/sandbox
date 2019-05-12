@@ -5,13 +5,13 @@ package com.orc.sandbox.common.constant;
  */
 public enum  StatusCode {
 
-    OK(20000, "成功"),
-    ERROR(20001, "失败"),
-    LOGINGERRO(20002, "用户或密码错误"),
-    ACCESSERROR(20003, "权限不足"),
-    REMOTEERROR(20004, "远程调用错误"),
-    REPERROR(20005, "重复操作"),
-    TIMEOUT(20006, "操作超时");
+    OK(20000, "Success"),
+    ERROR(20001, "Faild"),
+    LOGINGERRO(20002, "Access error"),
+    ACCESSERROR(20003, "Permission denied"),
+    REMOTEERROR(20004, "Remote error"),
+    REPERROR(20005, "Repe operation"),
+    TIMEOUT(20006, "Timeout");
 
     private StatusCode(int code, String msg){
         this.code = code;
