@@ -15,7 +15,7 @@
 
         <dependency>
             <groupId>com.orc</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>base</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
